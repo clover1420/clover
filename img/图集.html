@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>图集</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/clover1420/clover@master/bgm/main.css" />
+	<link rel="shortcut icon" href="/images/favicon.ico"/>
+</head>
+
+<body class="is-preload">
+<!--加载图开始-->
+<script type="text/javascript">
+//在页面未加载完毕之前显示的loading Html自定义内容
+var _LoadingHtml = `<div id="loadingDiv" 
+style="position: absolute;width: 250px; height: 250px; background: url('http://www.clover1420.top/2020/12/t2.gif') no-repeat center center;margin:auto;top: 0;left: 0;right: 0;bottom: 0;"></div>`;
+//呈现loading效果
+document.write(_LoadingHtml);
+   
+//window.onload = function () {
+//    var loadingMask = document.getElementById('loadingDiv');
+//    loadingMask.parentNode.removeChild(loadingMask);
+//};
+   
+//监听加载状态改变
+document.onreadystatechange = completeLoading;
+   
+//加载状态为complete时移除loading效果
+function completeLoading() {
+    if (document.readyState == "complete") {
+        var loadingMask = document.getElementById('loadingDiv');
+        loadingMask.parentNode.removeChild(loadingMask);
+    }
+}
+</script>
+<!--加载图结束-->
+	<!-- Wrapper -->
+	<div id="wrapper">
+		<!-- 头部 -->
+		<header id="header">
+			<h1><a href="https://clover1420.top"><strong>博客</strong></a></h1>
+			<nav>
+				<ul>
+					<li><a href="#footer" class="icon solid fa-info-circle">关于</a></li>
+				</ul>
+			</nav>
+		</header>
+		<!-- 主页 -->
+		<div id="main">
+		</div>
+		<!-- 关于 -->
+		<footer id="footer" class="panel">
+			<div class="inner split">
+				<div>
+					<section>
+						<h2>控制台</h2>
+						<p>本系统共有<span id="count_CN"></span>张图片，前端样式Multiverse由HTML5UP设计。</p>
+					</section>
+					<p class="copyright">
+						&copy; 2020 <a href="https://clover1420.top">繁华如风</a> Powered by <a href="https://github.com/616620131/photo-page-for-typecho">ZDSR</a> Based HTML5UP</a>.
+					</p>
+				</div>
+				<div>
+					<section>
+						<h2>关于</h2>
+						<p>根据酷安@隔壁老李007发的图文修改，<a href="https://github.com/616620131/photo-page-for-typecho">github地址</a></p>
+							<p></p>
+					</section>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<!-- 动态读取数据 by ZhangDi -->
+	<!-- 
+	模板
+	■标题★时间★图片链接
+	没有缩略图不加
+	-->
+	<script type="text/javascript">
+		var datas = `原神可丽炸鱼★2020.12.12★http://www.clover1420.top/2020/12/kl.jpg■我想吃掉你的姨脏★2020年12月13日★https://www.clover1420.top/2020/12/wxcdndyz.jpg■你的名字★2020年12月13日★https://www.clover1420.top/你的名字.jpg`;
+		datas = datas.split("■");
+		for (var i = 0; i < datas.length; i++) {
+			datas[i] = datas[i].split("★");
+		}
+
+		function creatArticle(datas) {
+			var parent = document.getElementById("main");
+			for (var i = 0; i < datas.length; i++) {
+				var article = document.createElement("article");
+				article.className = "thumb";
+				parent.appendChild(article);
+				var a = document.createElement("a");
+				a.className = "image";
+				a.href = datas[i][2];
+				article.appendChild(a);		
+				var img = document.createElement("img");
+				img.src = datas[i][2] + '!slt';
+				a.appendChild(img);
+				var h2 = document.createElement("h2");
+				h2.innerHTML = datas[i][0];
+				article.appendChild(h2);
+				var p = document.createElement("p");
+				p.innerHTML = datas[i][1];
+				article.appendChild(p);
+			}
+		}
+		creatArticle(datas);
+		document.getElementById("count_CN").innerHTML = datas.length;
+	</script>
+	<!-- Scripts -->
+	<script src="https://cdn.jsdelivr.net/gh/clover1420/clover@master/img/js/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/clover1420/clover@master/img/js/jquery.poptrox.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/clover1420/clover@master/img/js/browser.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/clover1420/clover@master/img/js/breakpoints.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/clover1420/clover@master/img/js/util.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/clover1420/clover@master/img/js/main.js"></script>
+</body>
+
+</html>
